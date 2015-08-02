@@ -22,8 +22,8 @@ public class TestUpload {
      */
     @Test
     public void putObject() throws IOException {
-        String bucketName = "";
-        String objectKey = "";
+        String bucketName = "binbinpictures";
+        String objectKey = "test";
         
         UploadUtil.putObject(bucketName, objectKey);
     }

@@ -18,8 +18,8 @@ public class TestDownload {
      */
     @Test
     public void getObject() throws IOException {
-        String bucketName = "";
-        String objectKey = "";
+        String bucketName = "binbinpictures";
+        String objectKey = "test";
         
         DownloadUtil.getObject(bucketName, objectKey);
     }

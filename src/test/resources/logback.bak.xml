@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 百度云日志 -->
+<xml-body>
+	<configuration scan="true" scanPeriod="60 seconds" debug="true">
+		<!--定义变量LOG_HOME用于配置log日志生成的目录 -->
+		<property name="LOG_HOME" value="/logs" />
+		
+		<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+		<property name="ENCODER_PATTERN" value="%d{yyyy-MM-dd  HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n" />
+
+		<!-- 控制台输出 -->
+		<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+			<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+				<pattern>${ENCODER_PATTERN}</pattern>
+			</encoder>
+		</appender>
+
+		<!-- 滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件 -->
+		<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+				<!--日志文件输出的文件名 -->
+				<FileNamePattern>${LOG_HOME}/output.%d{yyyy-MM-dd}.log</FileNamePattern>
+				<MaxHistory>30</MaxHistory>
+
+			</rollingPolicy>
+
+			<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+				<pattern>${ENCODER_PATTERN}</pattern>
+			</encoder>
+
+			<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+
+				<!--日志文件最大的大小 -->
+				<MaxFileSize>10MB</MaxFileSize>
+
+			</triggeringPolicy>
+		</appender>
+
+		<!-- show parameters for hibernate sql 专为 Hibernate 定制 -->
+		<!-- <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" /> <logger name="org.hibernate.type.descriptor.sql.BasicExtractor" 
+			level="DEBUG" /> <logger name="org.hibernate.SQL" level="DEBUG" /> <logger name="org.hibernate.engine.QueryParameters" level="DEBUG" 
+			/> <logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG" /> -->
+
+		<!-- 日志输出级别 -->
+		<root level="debug">
+			<appender-ref ref="STDOUT" />
+			<appender-ref ref="FILE" />
+		</root>
+
+		<!--日志异步到数据库 -->
+		<!-- <appender name="DB" class="ch.qos.logback.classic.db.DBAppender"> 日志异步到数据库 <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource"> 
+			连接池 <dataSource class="com.mchange.v2.c3p0.ComboPooledDataSource"> <driverClass>com.mysql.jdbc.Driver</driverClass> <url>jdbc:mysql://127.0.0.1:3306/databaseName</url> 
+			<user>root</user> <password>root</password> </dataSource> </connectionSource> </appender> -->
+	</configuration>
+</xml-body>

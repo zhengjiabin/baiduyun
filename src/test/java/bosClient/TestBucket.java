@@ -14,7 +14,7 @@ public class TestBucket {
      */
     @Test
     public void createBucket() {
-        String bucketName = "";
+        String bucketName = "binbinpictures";
         BucketUtil.createBucket(bucketName);
     }
     
@@ -31,7 +31,7 @@ public class TestBucket {
      */
     @Test
     public void doesBucketExist() {
-        String bucketName = "test";
+        String bucketName = "binbinpictures";
         BucketUtil.doesBucketExist(bucketName);
     }
     
@@ -43,7 +43,7 @@ public class TestBucket {
      */
     @Test
     public void deleteBucket() {
-        String bucketName = "test";
+        String bucketName = "binbinpictures";
         BucketUtil.deleteBucket(bucketName);
     }
     

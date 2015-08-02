@@ -25,7 +25,8 @@
 			<groupId>com.baidubce</groupId>
 			<artifactId>bce-java-sdk</artifactId>
 			<version>${bce-java-sdk.version}</version>
-			<exclusions>
+			<!-- 若无需百度云的日志，则需添加以下exclusions -->
+			<!-- <exclusions>
 				<exclusion>
 					<groupId>ch.qos.logback</groupId>
 					<artifactId>logback-classic</artifactId>
@@ -38,7 +39,7 @@
 					<groupId>org.slf4j</groupId>
 					<artifactId>jcl-over-slf4j</artifactId>
 				</exclusion>
-			</exclusions>
+			</exclusions> -->
 		</dependency>
 		<!-- baiduyun end -->
 

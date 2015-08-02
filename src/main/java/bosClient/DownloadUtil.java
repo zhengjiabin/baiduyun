@@ -34,7 +34,7 @@ public class DownloadUtil {
         System.out.println(objectContent.read());
         
         // 获取Object至文件中
-        File file = new File("/path/to/file");
+        File file = new File("F:/temp/haha.png");
         bosClient.getObject(bucketName, objectKey, file);
         
         //只获取ObjectMetadata

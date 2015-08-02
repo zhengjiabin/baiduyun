@@ -1,9 +1,7 @@
 package bosClient;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 import javax.ws.rs.core.MediaType;
 
@@ -31,25 +29,25 @@ public class UploadUtil {
      */
     public static void putObject(String bucketName, String objectKey) throws IOException {
         // 以文件形式上传Object
-        File file = new File("/path/to/file.zip");
+        File file = new File("F:/temp/ceshi.png");
         PutObjectResponse putObjectFromFileResponse = bosClient.putObject(bucketName, objectKey, file);
         System.out.println(putObjectFromFileResponse.getETag());
         
         // 以数据流形式上传Object
-        InputStream inputStream = new FileInputStream(file);
-        PutObjectResponse putObjectResponseFromInputStream = bosClient.putObject(bucketName, objectKey, inputStream);
-        System.out.println(putObjectResponseFromInputStream.getETag());
+        //        InputStream inputStream = new FileInputStream(file);
+        //        PutObjectResponse putObjectResponseFromInputStream = bosClient.putObject(bucketName, objectKey, inputStream);
+        //        System.out.println(putObjectResponseFromInputStream.getETag());
         
         // 以二进制串上传Object，read只读一行，在此仅用于测试
-        byte[] b = new byte[] {};
-        inputStream.read(b);
-        PutObjectResponse putObjectResponseFromByte = bosClient.putObject(bucketName, objectKey, b);
-        System.out.println(putObjectResponseFromByte.getETag());
+        //        byte[] b = new byte[] {};
+        //        inputStream.read(b);
+        //        PutObjectResponse putObjectResponseFromByte = bosClient.putObject(bucketName, objectKey, b);
+        //        System.out.println(putObjectResponseFromByte.getETag());
         
         // 以字符串上传Object
-        String content = "";
-        PutObjectResponse putObjectResponseFromString = bosClient.putObject(bucketName, objectKey, content);
-        System.out.println(putObjectResponseFromString.getETag());
+        //        String content = "";
+        //        PutObjectResponse putObjectResponseFromString = bosClient.putObject(bucketName, objectKey, content);
+        //        System.out.println(putObjectResponseFromString.getETag());
     }
     
     /**
