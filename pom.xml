@@ -26,20 +26,9 @@
 			<artifactId>bce-java-sdk</artifactId>
 			<version>${bce-java-sdk.version}</version>
 			<!-- 若无需百度云的日志，则需添加以下exclusions -->
-			<!-- <exclusions>
-				<exclusion>
-					<groupId>ch.qos.logback</groupId>
-					<artifactId>logback-classic</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>ch.qos.logback</groupId>
-					<artifactId>logback-core</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>jcl-over-slf4j</artifactId>
-				</exclusion>
-			</exclusions> -->
+			<!-- <exclusions> <exclusion> <groupId>ch.qos.logback</groupId> <artifactId>logback-classic</artifactId> </exclusion> 
+				<exclusion> <groupId>ch.qos.logback</groupId> <artifactId>logback-core</artifactId> </exclusion> <exclusion> <groupId>org.slf4j</groupId> 
+				<artifactId>jcl-over-slf4j</artifactId> </exclusion> </exclusions> -->
 		</dependency>
 		<!-- baiduyun end -->
 
@@ -72,6 +61,11 @@
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-servlet</artifactId>
+			<version>1.19</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey.contribs</groupId>
+			<artifactId>jersey-multipart</artifactId>
 			<version>1.19</version>
 		</dependency>
 		<dependency>
