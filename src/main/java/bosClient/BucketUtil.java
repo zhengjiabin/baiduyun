@@ -13,8 +13,9 @@ import com.baidubce.services.bos.model.SetBucketAclRequest;
 
 /**
  * bucket²Ù×÷¹¤¾ß
+ * 
  * @author Administrator
- *
+ * 
  */
 public class BucketUtil {
     private static BosClient bosClient = BosClientUtil.getInstance();

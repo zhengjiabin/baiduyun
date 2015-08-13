@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import org.junit.Test;
 
+import bean.BaiduBos;
+
 /**
  * ≤‚ ‘…œ¥´Object
  * 
@@ -22,10 +24,11 @@ public class TestUpload {
      */
     @Test
     public void putObject() throws IOException {
-        String bucketName = "binbinpictures";
-        String objectKey = "test";
+        BaiduBos bos = new BaiduBos();
+        bos.setBucketName("binbinpictures");
+        bos.setNewFileName("test");
         
-        UploadUtil.putObject(bucketName, objectKey);
+        UploadUtil.putObject(bos);
     }
     
     /**
@@ -33,9 +36,10 @@ public class TestUpload {
      */
     @Test
     public void putObjectAdvanced() {
-        String bucketName = "";
-        String objectKey = "";
+        BaiduBos bos = new BaiduBos();
+        bos.setBucketName("binbinpictures");
+        bos.setNewFileName("test");
         
-        UploadUtil.putObjectAdvanced(bucketName, objectKey);
+        UploadUtil.putObjectAdvanced(bos);
     }
 }
