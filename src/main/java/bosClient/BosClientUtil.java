@@ -3,6 +3,7 @@ package bosClient;
 import java.io.IOException;
 import java.util.Properties;
 
+import com.baidubce.Region;
 import com.baidubce.auth.DefaultBceCredentials;
 import com.baidubce.services.bos.BosClient;
 import com.baidubce.services.bos.BosClientConfiguration;
@@ -67,8 +68,27 @@ public class BosClientUtil {
         setCredentials(config, prop);
         // 设置域名信息
         setEndpoint(config, prop);
+        // 设置区域信息
+        setRegion(config, prop);
         
         return config;
+    }
+    
+    /**
+     * 设置区域信息
+     * 
+     * @param config
+     * @param prop
+     */
+    private static void setRegion(BosClientConfiguration config, Properties prop) {
+        String setRegion = prop.getProperty("setRegion");
+        if (!Boolean.parseBoolean(setRegion)) {
+            return;
+        }
+        
+        /** 设置区域 */
+        String region = prop.getProperty("region");
+        config.setRegion(Region.valueOf(region));
     }
     
     /**
