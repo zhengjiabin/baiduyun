@@ -74,11 +74,11 @@ public class TestOperateObject {
 	 */
 	@Test
 	public void copyObject() {
-		String srcBucketName = "";
-		String srcKey = "";
+		String srcBucketName = "binbinpictures";
+		String srcKey = "photo/test";
 
-		String destBucketName = "";
-		String destKey = "";
+		String destBucketName = "binbinpictures";
+		String destKey = "pictures/test";
 
 		OperateObjectUtil.copyObject(srcBucketName, srcKey, destBucketName, destKey);
 	}
