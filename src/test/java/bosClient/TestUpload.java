@@ -26,10 +26,7 @@ public class TestUpload {
         String directoryUnderBucket = "photo/test";
         String filePath = "F:/工作/soft/baiduyun.png";
         
-        String eTag = BosUploadUtil.putObject(bucketName, directoryUnderBucket, filePath);
-        System.out.println(eTag);
-        
-        String directory = OperateObjectUtil.generatePresignedUrlDirectory(bucketName, directoryUnderBucket);
+        String directory = BosUploadUtil.putObject(bucketName, directoryUnderBucket, filePath);
         System.out.println(directory);
     }
     
@@ -42,7 +39,7 @@ public class TestUpload {
         String newFileName = "test";
         String filePath = "E:/工作文档/酒业文档/temp/tupian.png";
         
-        String eTag = BosUploadUtil.putObjectAdvanced(bucketName, newFileName, filePath);
-        System.out.println(eTag);
+        String directory = BosUploadUtil.putObjectAdvanced(bucketName, newFileName, filePath);
+        System.out.println(directory);
     }
 }
