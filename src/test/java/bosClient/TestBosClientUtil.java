@@ -11,10 +11,10 @@ import com.baidubce.services.bos.BosClient;
  * 
  */
 public class TestBosClientUtil {
-    
-    @Test
-    public void testInitBosClient() {
-        BosClient bosClient = BosClientUtil.getInstance();
-        System.out.println(bosClient.getServiceId());
-    }
+
+	@Test
+	public void testInitBosClient() {
+		BosClient bosClient = BosClientUtil.getInstance();
+		System.out.println(bosClient.getServiceId());
+	}
 }
