@@ -24,7 +24,7 @@ public class TestOperateObject {
 	public void listObjects() {
 		String bucketName = "binbinpictures";
 
-		List<BosObjectSummary> listObjects = OperateObjectUtil.listObjects(bucketName);
+		List<BosObjectSummary> listObjects = BosOperateObjectUtil.listObjects(bucketName);
 		for (BosObjectSummary bosObjectSummary : listObjects) {
 			System.out.println(bosObjectSummary.getETag());
 		}
@@ -38,7 +38,7 @@ public class TestOperateObject {
 		// ππ‘ÏListObjectsRequest«Î«Û
 		String bucketName = "binbinpictures";
 
-		List<BosObjectSummary> listObjectsAdvanced = OperateObjectUtil.listObjectsAdvanced(bucketName);
+		List<BosObjectSummary> listObjectsAdvanced = BosOperateObjectUtil.listObjectsAdvanced(bucketName);
 		for (BosObjectSummary bosObjectSummary : listObjectsAdvanced) {
 			System.out.println(bosObjectSummary.getETag());
 		}
@@ -54,7 +54,7 @@ public class TestOperateObject {
 		String bucketName = "binbinpictures";
 		String objectKey = "test";
 
-		String directory = OperateObjectUtil.generatePresignedUrlDirectory(bucketName, objectKey);
+		String directory = BosOperateObjectUtil.generatePresignedUrlDirectory(bucketName, objectKey);
 		System.out.println(directory);
 	}
 
@@ -66,7 +66,7 @@ public class TestOperateObject {
 		String bucketName = "binbinpictures";
 		String objectKey = "xxxx";
 
-		OperateObjectUtil.deleteObject(bucketName, objectKey);
+		BosOperateObjectUtil.deleteObject(bucketName, objectKey);
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class TestOperateObject {
 		String destBucketName = "binbinpictures";
 		String destKey = "pictures/test";
 
-		OperateObjectUtil.copyObject(srcBucketName, srcKey, destBucketName, destKey);
+		BosOperateObjectUtil.copyObject(srcBucketName, srcKey, destBucketName, destKey);
 	}
 
 	/**
@@ -94,6 +94,6 @@ public class TestOperateObject {
 		String destBucketName = "";
 		String destKey = "";
 
-		OperateObjectUtil.copyObjectAdvanced(srcBucketName, srcKey, destBucketName, destKey);
+		BosOperateObjectUtil.copyObjectAdvanced(srcBucketName, srcKey, destBucketName, destKey);
 	}
 }

@@ -42,7 +42,7 @@ public class BosUploadUtil {
         File file = new File(filePath);
         bosClient.putObject(bucketName, directoryUnderBucket, file);
         
-        String directory = OperateObjectUtil.generatePresignedUrlDirectory(bucketName, directoryUnderBucket);
+        String directory = BosOperateObjectUtil.generatePresignedUrlDirectory(bucketName, directoryUnderBucket);
         return directory;
     }
     
@@ -65,7 +65,7 @@ public class BosUploadUtil {
         // 以字符串上传Object
         bosClient.putObject(bucketName, directoryUnderBucket, content);
         
-        String directory = OperateObjectUtil.generatePresignedUrlDirectory(bucketName, directoryUnderBucket);
+        String directory = BosOperateObjectUtil.generatePresignedUrlDirectory(bucketName, directoryUnderBucket);
         return directory;
     }
     
@@ -88,7 +88,7 @@ public class BosUploadUtil {
         // 以二进制串上传Object，read只读一行，在此仅用于测试
         bosClient.putObject(bucketName, directoryUnderBucket, b);
         
-        String directory = OperateObjectUtil.generatePresignedUrlDirectory(bucketName, directoryUnderBucket);
+        String directory = BosOperateObjectUtil.generatePresignedUrlDirectory(bucketName, directoryUnderBucket);
         return directory;
     }
     
@@ -111,7 +111,7 @@ public class BosUploadUtil {
         // 以数据流形式上传Object
         bosClient.putObject(bucketName, directoryUnderBucket, inputStream);
         
-        String directory = OperateObjectUtil.generatePresignedUrlDirectory(bucketName, directoryUnderBucket);
+        String directory = BosOperateObjectUtil.generatePresignedUrlDirectory(bucketName, directoryUnderBucket);
         return directory;
     }
     
@@ -135,7 +135,7 @@ public class BosUploadUtil {
         ObjectMetadata metadata = initObjectMetadata();
         bosClient.putObject(bucketName, directoryUnderBucket, file, metadata);
         
-        String directory = OperateObjectUtil.generatePresignedUrlDirectory(bucketName, directoryUnderBucket);
+        String directory = BosOperateObjectUtil.generatePresignedUrlDirectory(bucketName, directoryUnderBucket);
         return directory;
     }
     

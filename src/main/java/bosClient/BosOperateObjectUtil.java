@@ -24,7 +24,7 @@ import com.baidubce.services.bos.model.ObjectMetadata;
  * @author Administrator
  * 
  */
-public class OperateObjectUtil {
+public class BosOperateObjectUtil {
     private static BosClient bosClient = BosClientUtil.getInstance();
     
     private static Properties prop;
@@ -32,7 +32,7 @@ public class OperateObjectUtil {
     static {
         prop = new Properties();
         try {
-            prop.load(OperateObjectUtil.class.getResourceAsStream("/baiduBos.properties"));
+            prop.load(BosOperateObjectUtil.class.getResourceAsStream("/baiduBos.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
