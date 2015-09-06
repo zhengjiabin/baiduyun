@@ -213,7 +213,7 @@
 	</dependencies>
 	<build>
 		<finalName>baiduyun</finalName>
-		<plugins>
+		<!-- <plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -223,7 +223,7 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
-		</plugins>
+		</plugins> -->
 	</build>
 	<properties>
 		<bce-java-sdk.version>0.8.9</bce-java-sdk.version>
