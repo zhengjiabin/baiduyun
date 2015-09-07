@@ -3,6 +3,8 @@ package bosClient;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.springframework.util.StringUtils;
+
 import com.baidubce.services.bos.BosClient;
 
 public class BosDirectoryUtil {
@@ -19,12 +21,32 @@ public class BosDirectoryUtil {
 	}
 
 	/**
+	 * 获取bucket下的路径
+	 * 
+	 * @param bucketName
+	 * @param filePath
+	 * @return
+	 */
+	public static String getDirectoryUnderBucket(String bucketName, String filePath) {
+		if (StringUtils.isEmpty(filePath)) {
+			return null;
+		}
+		if (StringUtils.isEmpty(bucketName)) {
+			return filePath;
+		}
+
+		int index = filePath.indexOf(bucketName);
+		String directoryUnderBucket = filePath.substring(index + bucketName.length() + 1, filePath.length());
+		return directoryUnderBucket;
+	}
+
+	/**
 	 * 获取文件名后缀
 	 * 
 	 * @param fileAbsolutePath
 	 */
 	public static String getFileSuffix(String fileAbsolutePath) {
-		if (fileAbsolutePath == null || fileAbsolutePath.length() <= 0) {
+		if (StringUtils.isEmpty(fileAbsolutePath)) {
 			return null;
 		}
 
@@ -40,7 +62,7 @@ public class BosDirectoryUtil {
 	 * @return
 	 */
 	public static String normalDirectory(String directory) {
-		if (directory == null || directory.length() <= 0) {
+		if (StringUtils.isEmpty(directory)) {
 			return null;
 		}
 
@@ -58,8 +80,7 @@ public class BosDirectoryUtil {
 	 * </pre>
 	 */
 	public static String getBosDirectory(String bucketName, String directoryUnderBucket) {
-		if (bucketName == null || bucketName.length() <= 0 || directoryUnderBucket == null
-				|| directoryUnderBucket.length() <= 0) {
+		if (StringUtils.isEmpty(bucketName) || StringUtils.isEmpty(directoryUnderBucket)) {
 			return null;
 		}
 

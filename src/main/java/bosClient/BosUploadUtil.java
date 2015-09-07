@@ -54,6 +54,30 @@ public class BosUploadUtil {
 	}
 
 	/**
+	 * <pre>
+	 * 文件路径形式上传文件
+	 * 1、putObject函数支持不超过5GB的Object上传
+	 * 2、BOS会在Header中返回Object的ETag作为文件标识
+	 * </pre>
+	 * 
+	 * @throws IOException
+	 */
+	public static String putObject(String bucketName, String directoryUnderBucket, File file) throws IOException {
+		if (StringUtils.isEmpty(bucketName) || StringUtils.isEmpty(directoryUnderBucket) || file == null) {
+			return null;
+		}
+
+		if (!BosBucketUtil.doesBucketExist(bucketName)) {
+			BosBucketUtil.createBucket(bucketName);
+		}
+
+		bosClient.putObject(bucketName, directoryUnderBucket, file);
+
+		String directory = BosDirectoryUtil.getBosDirectory(bucketName, directoryUnderBucket);
+		return directory;
+	}
+
+	/**
 	 * 文件内容字符串形式上传文件
 	 * 
 	 * @param bucketName

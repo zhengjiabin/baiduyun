@@ -31,7 +31,7 @@ public class TestUpload {
 		String suffix = BosDirectoryUtil.getFileSuffix(file.getAbsolutePath());
 		directoryUnderBucket = directoryUnderBucket + "/test" + suffix;
 
-		String directory = BosUploadUtil.putObject(bucketName, directoryUnderBucket, filePath);
+		String directory = BosUploadUtil.putObject(bucketName, directoryUnderBucket, file);
 		System.out.println(directory);
 	}
 
