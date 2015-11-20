@@ -13,8 +13,8 @@ import org.junit.Test;
  */
 public class TestBatchUpload {
 	private static final String bucketName = "cndwineapp";
-	private static final String baseDirectoryUnderBucket = "image/cgcode";
-	private static final String baseFileDirectory = "D:/zhengjiabin/download/cgcode";
+	private static final String baseDirectoryUnderBucket = "image/cgcode/";
+	private static final String baseFileDirectory = "E:/tupian";
 
 	/** 缩略图名称 */
 	private static final String thumbnailName = "Thumbs.db";
@@ -42,9 +42,10 @@ public class TestBatchUpload {
 			return;
 		}
 
-		String absolutePath = file.getAbsolutePath();
-		absolutePath = absolutePath.replace("\\", "/");
-		String relativeDirectory = absolutePath.replace(baseFileDirectory, "");
+		String relativeDirectory = getDirectory(file);
+		if (relativeDirectory == null) {
+			return;
+		}
 		String directoryUnderBucket = baseDirectoryUnderBucket + relativeDirectory;
 
 		try {
@@ -53,5 +54,28 @@ public class TestBatchUpload {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * 获取文件相对路径
+	 * 
+	 * @param file
+	 * @return
+	 */
+	private String getDirectory(File file) {
+		// String absolutePath = file.getAbsolutePath();
+		// absolutePath = absolutePath.replace("\\", "/");
+		// String relativeDirectory = absolutePath.replace(baseFileDirectory,
+		// "");
+
+		String name = file.getName();
+		int suffix = name.lastIndexOf(".");
+		String prefix = name.substring(0, suffix);
+		if (prefix == null || prefix.length() <= 3) {
+			return null;
+		}
+		String packPath = prefix.substring(0, prefix.length() - 3);
+
+		return packPath + "/" + name;
 	}
 }
